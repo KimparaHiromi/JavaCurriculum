@@ -125,6 +125,24 @@ public class Question3 {
 		-------------------------------------------------------------------------*/
 		
 		Scanner scanner = new Scanner(System.in); // scanner 開始
+		int zeroEnd = 1;
+		
+		while ( zeroEnd != 0 ) {
+		 System.out.print("いずれかの値を入力してください ( zeroEnd ) : "); // 受付可能状態がわかるように設置
+		 String zeroEndInput = scanner.nextLine();
+		 
+		 if ( zeroEndInput.matches( "^[0-9]+$" ) ) { 
+	      zeroEnd = Integer.parseInt( zeroEndInput );
+		 } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+		 }
+		}
+		System.out.println( "終了しました" );
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
+		
+		Scanner scanner = new Scanner(System.in); // scanner 開始
 		
 		int zeroEnd = 1;
 		while ( zeroEnd != 0 ) {
@@ -132,6 +150,8 @@ public class Question3 {
 		 zeroEnd = scanner.nextInt();
 		}
 		System.out.println( "終了しました" );
+		
+		*/
 		
 		/*-------------------------------------------------------------------------
 		[概要] Question 3_11 : for文を使って九九を出力
@@ -155,7 +175,11 @@ public class Question3 {
 		[概要] Question 3_12 : 拡張for文、switch文、条件演算子を使って商品の残り台数を出力
 		-------------------------------------------------------------------------*/
 		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
+		
 		scanner.nextLine(); // スキャナーの中身を空にする
+		
+		*/
 		
 		System.out.print("入力してください ( product ) : "); 
 		String input = scanner.nextLine();

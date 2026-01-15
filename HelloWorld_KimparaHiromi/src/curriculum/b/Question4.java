@@ -180,12 +180,40 @@ public class Question4 {
 		 for ( int q9Column : q9Row ) {
 		  if ( q9Max < q9Column ) { 
 		   q9Max = q9Column; 
+		  } // ← 修正 : ここで区切る
+		  if ( q9Min > q9Column ) { // ← 修正 : 書き入れる
+		   q9Min = q9Column; 
+		  }
+		 }
+		} 
+		System.out.println("最大値: " + q9Max + " / " + "最小値: " + q9Min );
+		
+		
+		
+		/* 保存 : 「最大値が動かないと最小値が動かない」問題対処前
+		
+		 // 変数の宣言（ ※先の設問にて使用しているので new ）
+		array = new int [][] {
+		  {12,15,8},
+		  {6,19,25},
+		  {30,2,10}
+		};
+		int q9Max = array[0][0];
+		int q9Min = array[0][0];
+		
+		 // 比較 → 表示
+		for ( int[] q9Row : array ) { 
+		 for ( int q9Column : q9Row ) {
+		  if ( q9Max < q9Column ) { 
+		   q9Max = q9Column; 
 		  if ( q9Min > q9Column ) 
 		   q9Min = q9Column; 
 		  }
 		 }
 		} 
 		System.out.println("最大値: " + q9Max + " / " + "最小値: " + q9Min );
+		
+		*/
 		
 		/*-------------------------------------------------------------------------
 		[概要] Question 4_10 : int型の３次元配列を作成し、その全要素を出力

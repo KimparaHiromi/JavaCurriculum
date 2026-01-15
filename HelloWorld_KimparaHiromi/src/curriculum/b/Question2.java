@@ -65,23 +65,108 @@ public class Question2 {
 		Scanner scanner = new Scanner(System.in); // scanner 開始
 		
 		System.out.print("いずれかの値を入力してください ( num ) : "); // 受付可能状態がわかるように設置
+		String numInput = scanner.nextLine();
+		int num = 0;
+		num = Integer.parseInt( numInput );
+		
+		 // ※ 数字以外を入力すると停止してしまう
+		
+		if ( num > 0 ) { System.out.println( "正の数です" ); }
+		else if ( num == 0 ){ System.out.println( "0 です" );}
+		else { System.out.println( "負の数です" ); }
+		
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
+		
+		Scanner scanner = new Scanner(System.in); // scanner 開始
+		
+		System.out.print("いずれかの値を入力してください ( num ) : "); // 受付可能状態がわかるように設置
 		int num = scanner.nextInt();
 		if ( num > 0 ) { System.out.println( "正の数です" ); }
 		else if ( num == 0 ){ System.out.println( "0 です" );}
 		else { System.out.println( "負の数です" ); }
 		
+		 */
+		
+		
+		
+		/* メモ : 戻れるようにした「while」型
+		
+		Scanner scanner = new Scanner(System.in); // scanner 開始
+		
+		 // 変数の初期化
+		int num = 0;
+		
+		 // 入力に間違いがないかチェック
+		while ( true ) { 
+		 System.out.print("いずれかの値を入力してください ( num ) : "); // 受付可能状態がわかるように設置
+		 String numInput = scanner.nextLine();
+		
+		 if ( numInput.matches( "^[0-9]+$" ) ) { 
+          num = Integer.parseInt( numInput );
+          if ( num > 0 ) { System.out.println( "正の数です" ); }
+		  else if ( num == 0 ){ System.out.println( "0 です" );}
+		  else { System.out.println( "負の数です" ); }
+          break;
+		 } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+		 }
+		}
+		
+		 */
+		
 		/*-------------------------------------------------------------------------
 		[概要] Question 2_6 : int型の変数に入力された値が奇数か偶数かによって内容を変えて出力
 		-------------------------------------------------------------------------*/
+		
+		while ( true ) { 
+		 System.out.print("いずれかの値を入力してください ( value ) : "); // 受付可能状態がわかるように設置
+		 String valueInput = scanner.nextLine();
+		
+		 if ( valueInput.matches( "^[0-9]+$" ) ) { 
+          int value = Integer.parseInt( valueInput );
+          if ( ( value % 2 ) == 0 ) { System.out.println( "偶数です" ); }
+  		  else { System.out.println( "奇数です" ); }
+          break;
+		 } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+		 }
+		}
+		
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
 		
 		System.out.print("いずれかの値を入力してください ( value ) : "); // 受付可能状態がわかるように設置
 		int value = scanner.nextInt();
 		if ( ( value % 2 ) == 0 ) { System.out.println( "偶数です" ); }
 		else { System.out.println( "奇数です" ); }
 		
+		*/
+		
 		/*-------------------------------------------------------------------------
 		[概要] Question 2_7 : int型の変数に入力された値（ 0 ～ 100 ）によって内容を変えて出力 ※ 0 を下回る ＆ 100 を上回る場合の指定無し
 		-------------------------------------------------------------------------*/
+		
+		while ( true ) { 
+		 System.out.print("いずれかの値を入力してください ( score ) : "); // 受付可能状態がわかるように設置
+		 String scoreInput = scanner.nextLine();
+		
+		 if ( scoreInput.matches( "^[0-9]+$" ) ) { 
+          score = Integer.parseInt( scoreInput );
+          if ( score <= 100 && score >= 90 ) { System.out.println( "優" ); }
+  		  else if ( score < 90 && score >= 70 ){ System.out.println( "良" );}
+  		  else if ( score < 70 && score >= 50 ){ System.out.println( "可" );}
+  		  else if ( score < 50 && score >= 0 ){ System.out.println( "不可" );}
+  		  else { System.out.println( "測定不能" ); } // 念のため用意
+          break;
+		 } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+		 }
+		}
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
 		
 		System.out.print("いずれかの値を入力してください ( score ) : "); // 受付可能状態がわかるように設置
 		score = scanner.nextInt(); // 先の設問で使用した変数の再利用
@@ -91,9 +176,27 @@ public class Question2 {
 		else if ( score < 50 && score >= 0 ){ System.out.println( "不可" );}
 		else { System.out.println( "測定不能" ); } // 念のため用意
 		
+		*/
+		
 		/*-------------------------------------------------------------------------
 		[概要] Question 2_8 : コンソール入力が「null」または「空文字（""）」のときにその旨を通知する文を出力
 		-------------------------------------------------------------------------*/
+		
+		while ( true ) { 
+		
+		 System.out.print("何も入力しないで Enter を押してください ( valid ) : "); // 受付可能状態がわかるように設置（設問上、ここでは何も入れない）
+		 String valid = scanner.nextLine();
+		
+		 if ( valid == null || valid.isEmpty() ) { 
+		  System.out.println("入力が無効です");
+		  break;
+		 } else  { 
+		  System.out.println("入力されています"); // もし入力されてしまった場合の処置
+		 }
+		}
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
 		
 		scanner.nextLine(); // スキャナーの中身を空にする
 		
@@ -105,11 +208,51 @@ public class Question2 {
 		 System.out.println("入力されています"); // もし入力されてしまった場合の処置
 		}
 		
-		
+		*/
 		
 		/*-------------------------------------------------------------------------
 		[概要] Question 2_9 : int型変数へのコンソールによる数値入力に応じて曜日を告知する文を出力
 		-------------------------------------------------------------------------*/
+		
+		while ( true ) { 
+		 System.out.print("いずれかの値を入力してください ( day ) : "); // 受付可能状態がわかるように設置
+		 String dayInput = scanner.nextLine();
+		 if ( dayInput.matches( "^[0-9]+$" ) ) { 
+		  int day = Integer.parseInt( dayInput );
+		  switch ( day ) {
+		   case 1:
+		    System.out.println( "月曜日" );
+		    break;
+		   case 2:
+		    System.out.println( "火曜日" );
+		    break;
+		   case 3:
+		    System.out.println( "水曜日" );
+		    break;
+		   case 4:
+		    System.out.println( "木曜日" );
+		    break;
+		   case 5:
+		    System.out.println( "金曜日" );
+		    break;
+		   case 6:
+		    System.out.println( "土曜日" );
+		    break;
+		   case 7:
+		    System.out.println( "日曜日" );
+		    break;
+		   default:
+		    System.out.println( "無効な入力です" );
+		   }
+		   break;
+		  } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+		 }
+		}
+		
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
 		
 		scanner.nextLine(); // スキャナーの中身を空にする
 		
@@ -141,9 +284,44 @@ public class Question2 {
 		  System.out.println( "無効な入力です" );
 		}
 		
+		*/
+		
 		/*-------------------------------------------------------------------------
 		[概要] Question 2_10 : int型変数へのコンソールによる数値入力に応じて曜日を告知する文を出力
 		-------------------------------------------------------------------------*/
+		
+		while ( true ) { 
+		 System.out.print("いずれかの値を入力してください ( month ) : "); // 受付可能状態がわかるように設置
+		 String monthInput = scanner.nextLine();
+		
+		 if ( monthInput.matches( "^[0-9]+$" ) ) { 
+	      int month = Integer.parseInt( monthInput );
+	       switch ( month ) {
+	 	    case 12: case 1: case 2: 
+	 		 System.out.println( "冬" );
+	 		 break;
+	 		case 3: case 4: case 5: 
+	 		 System.out.println( "春" );
+	 		 break;
+	 		case 6: case 7: case 8: 
+	 		 System.out.println( "夏" );
+	 		 break;
+	 		case 9: case 10: case 11: 
+	 		 System.out.println( "秋" );
+	 		 break;
+	 		default:
+	 		 System.out.println( "無効な月です" );
+	 		 break;
+	       }
+	       break;
+		  } else { 
+		  System.out.println("エラー：半角数字のみを入力してください。");
+	     }
+		}
+		
+		
+		
+		/* 保存 : 「nextInt」ではなく「nextLine」を使用するように修正する前
 		
 		scanner.nextLine(); // スキャナーの中身を空にする
 		
@@ -165,6 +343,8 @@ public class Question2 {
 		 default:
 		  System.out.println( "無効な月です" );
 		}
+		
+		*/
 		
 		
 		
