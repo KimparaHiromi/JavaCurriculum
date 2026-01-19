@@ -159,6 +159,18 @@ public class Question3 {
 		
 		for ( int for11A = 1; for11A <= 9; for11A++ ) {
 		 for ( int for11B = 1; for11B <= 9; for11B++ ) {
+		  System.out.printf( "%02d * %02d = %02d" , for11A , for11B , for11A * for11B );
+		  if ( for11B != 9 ) { 
+		   System.out.print( " || " );
+		  } 
+		 }
+		System.out.println();
+		}
+		
+		/* 保存 : 「printf」使用前
+		
+		for ( int for11A = 1; for11A <= 9; for11A++ ) {
+		 for ( int for11B = 1; for11B <= 9; for11B++ ) {
 		  if ( for11A * for11B <= 9 ) { 
 		   System.out.print( "0" + for11A + " * " + "0" + for11B + " = 0" + for11A * for11B );
 		  } else {
@@ -170,6 +182,8 @@ public class Question3 {
 		  }
 		 System.out.println();
 		 }
+		 
+		  */
 		
 		/*-------------------------------------------------------------------------
 		[概要] Question 3_12 : 拡張for文、switch文、条件演算子を使って商品の残り台数を出力

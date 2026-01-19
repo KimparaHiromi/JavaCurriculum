@@ -1,8 +1,5 @@
 package curriculum.b;
 
-import curriculum.Import.Animal; // ※ ← 先に呼び出し先を書いておかないと自動消去される？
-import curriculum.Import.Greeting; // ※ ← 先に呼び出し先を書いておかないと自動消去される？
-
 /**********************************************************************************
 * [概要] Question 5 の課題処理
 * [詳細] Question 5_1 ～ Question 5_5 までの課題内容およびそれに基づく解答結果を出力する。
