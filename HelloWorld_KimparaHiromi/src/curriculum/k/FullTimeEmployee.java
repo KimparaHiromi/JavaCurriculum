@@ -4,34 +4,43 @@ package curriculum.k;
 * [概要] 課題 22.7 「オブジェクト指向の設計原則」の課題にて使用する「『正社員』クラス」
 * [詳細] 
 * ① プライベート変数「名前（String name）」、「雇用形態（String type）」、「勤務時間（int hours）」所持
-* ② コンストラクタはスーパークラス（Employee）から引き継ぐ
+<<<<<<< Upstream, based on origin/KimparaHiromi
+* ② コンストラクタはスーパークラス（Employee）から引き継がずに独自で持つ
 * ③ インターフェース「Payable」の適用
 **********************************************************************************/
 
-public class FullTimeEmployee extends Employee implements Payable {
-	
+public class FullTimeEmployee implements Payable {
+
 	/*-------------------------------------------------------------------------
-	[概要]「コンストラクタ」：名前、雇用形態、勤務時間をスーパークラス（Employee）から持ってくる。
+	[概要]「プライベート変数」：「名前（String name）」、「勤務時間（int hours）」
 	-------------------------------------------------------------------------*/
-	 public FullTimeEmployee(String name, String type, int hours) {
-	  super(name,type,hours);
-	}
-	 	
-	 	
-	 	
-	 	
-		/*-------------------------------------------------------------------------
-		[概要] 課題 22.7 「オブジェクト指向の設計原則」において追加した「インターフェース」
-		-------------------------------------------------------------------------*/
-	 
-	 	@Override
-	 	public long calculate();{
-	 		return (long) hours * 1200;
-	 	}
-	 	
-	 	@Override
-	 	public String getName();{
-	 		return name;
-	 	}
-	 	
+ 	
+ 	private String name;
+ 	private int hours;
+ 	
+ 	/*-------------------------------------------------------------------------
+	[概要]「コンストラクタ」：名前、雇用形態、勤務時間をスーパークラス（Employee）から持ってくる。
+	★★★ ※ 修正 → 「雇用形態」に関しては要らなくなるのでスーパークラスからの継承なしでインターフェースのみ実装、コンストラクタはそれぞれオリジナルで持つ。
+	-------------------------------------------------------------------------*/
+	
+ 	public FullTimeEmployee(String name, int hours) {
+     this.name = name;
+     this.hours = hours;
+    }
+ 	
+	/*-------------------------------------------------------------------------
+	[概要] 課題 22.7 「オブジェクト指向の設計原則」において追加した「インターフェース」
+	-------------------------------------------------------------------------*/
+ 
+ 	@Override
+ 	public long calculate(){
+ 	 return (long) hours * 1200;
+ 	}
+ 	
+ 	@Override
+ 	public String getName(){
+ 	 return name;
+
+ 	}
+
 }
