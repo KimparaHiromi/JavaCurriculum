@@ -38,8 +38,21 @@ public class BattleManager {
       addLog(log, c.getName() + " (HP:" + c.getHp() + " AT:" + c.getAt() + " SP:" + c.getSp() + ")");
      }
 	 
-     participants.sort((c1, c2) -> c2.getSp() - c1.getSp()); // 「素早さ/SP」順に並び変える
+	 participants.sort((c1, c2) -> Integer.compare(c2.getSp(), c1.getSp())); // 「素早さ/SP」順に並び変える
+     // 修正前 : participants.sort((c1, c2) -> c2.getSp() - c1.getSp()); ← これだと、オーバーフローで計算結果がおかしくなってしまう可能性あり
      
+	 /* 
+	  * メモ : 調査結果「別の方法」
+	  * 
+	  * ①「Comparator.comparingInt」を使う方法
+      * participants.sort(Comparator.comparingInt(Participant::getSp).reversed()); // 降順
+      * participants.sort(Comparator.comparingInt(c -> c.getSp())); // 昇順（今回のとは逆順）
+      * 
+      * ②「Comparator.naturalOrder」（※ リストの中身が「Int型」のみで使用可能？とのこと）
+      * participants.sort(Comparator.reverseOrder());
+      *
+      */
+	 
      addLog(log, System.lineSeparator() + "【 行動順 】"); // 「行動順」の出力と記録
      for (Character c : participants) { 
       addLog(log, " ↓ " + c.getName()); 
